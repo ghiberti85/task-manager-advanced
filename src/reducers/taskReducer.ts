@@ -1,4 +1,4 @@
-import type { Task } from "../types";
+import type { Task } from "../types/types";
 
 export type Action =
   | { type: "INIT"; payload: Task[] }
