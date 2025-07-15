@@ -1,69 +1,111 @@
-# React + TypeScript + Vite
+````markdown
+# Advanced Task Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive React application demonstrating the core React Hooks in a real-world “Task Manager” mini-project. Built with Vite, TypeScript, Tailwind-inspired CSS, and deployed on Vercel.
 
-Currently, two official plugins are available:
+**Live Demo:** [https://task-manager-advanced-phi.vercel.app/](https://task-manager-advanced-phi.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Create / Edit / Delete / Toggle** tasks with priority levels (Low, Medium, High)
+- **Light & Dark Theme** toggle with persistent preference
+- **LocalStorage Persistence** via custom `useLocalStorage` hook
+- **Simulated Fetch** with loading & error states via custom `useTasks` hook
+- **Responsive Design** optimized for desktop and mobile
+- **Accessible UI** with semantic HTML, focus styles, and ARIA labels
+- **Internationalization** support (English 🇬🇧 / Portuguese 🇵🇹) powered by `react-i18next`
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 🏗️ Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **React 18** + **TypeScript**
+- **Vite** (build tooling & dev server)
+- **React Hooks**: `useState`, `useReducer`, `useEffect`, `useContext`, `useRef`, `useCallback`, `useMemo`
+- **i18n**: `i18next` + `react-i18next`
+- **Styling**: Plain CSS with CSS Variables for theming
+- **Deployment**: Vercel
+
+---
+
+## 📥 Getting Started
+
+### Prerequisites
+
+- Node.js (v16+) & npm
+- Git
+
+### Installation
+
+```bash
+# Clone repository
+git clone https://github.com/your-username/task-manager-advanced.git
+cd task-manager-advanced
+
+# Install dependencies
+npm install
+```
+````
+
+### Running Locally
+
+```bash
+# Start dev server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Building for Production
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run build
+npm run preview
 ```
+
+---
+
+## 🔧 Project Structure
+
+```
+task-manager-advanced/
+├─ public/               # static assets
+├─ src/
+│  ├─ components/        # TaskInput, TaskList, TaskItem, LanguageSwitcher
+│  ├─ context/           # ThemeContext, ThemeProvider
+│  ├─ hooks/             # useTasks, useLocalStorage, useTheme
+│  ├─ locales/           # en.json, pt.json for i18n
+│  ├─ reducers/          # taskReducer
+│  ├─ types/             # Task interface
+│  ├─ App.tsx            # root component
+│  ├─ i18n.ts            # i18n configuration
+│  ├─ index.css          # global styles & theming
+│  └─ main.tsx           # app entrypoint
+├─ .gitignore
+├─ package.json
+├─ tsconfig.json
+├─ vite.config.ts
+└─ README.md
+```
+
+---
+
+## 🤝 Contributing
+
+1. Fork this repository
+2. Create your feature branch (`git checkout -b feature/my-feature`)
+3. Commit your changes (`git commit -m "feat: add my feature"`)
+4. Push to the branch (`git push origin feature/my-feature`)
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+> Built with 💚 for Fernando Ghiberti
