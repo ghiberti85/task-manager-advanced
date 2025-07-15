@@ -108,4 +108,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-> Built with 💚 for Fernando Ghiberti
+> Built with 💚 by Fernando Ghiberti
