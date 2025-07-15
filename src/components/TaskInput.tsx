@@ -3,8 +3,8 @@ import React, {
   useRef,
   useImperativeHandle,
   useState,
-  FormEvent,
 } from "react";
+import type { FormEvent } from "react";
 import type { Task } from "../types/types";
 import { v4 as uuid } from "uuid";
 
