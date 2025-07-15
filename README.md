@@ -1,4 +1,3 @@
-````markdown
 # Advanced Task Manager
 
 A modern, responsive React application demonstrating the core React Hooks in a real-world “Task Manager” mini-project. Built with Vite, TypeScript, Tailwind-inspired CSS, and deployed on Vercel.
@@ -47,7 +46,6 @@ cd task-manager-advanced
 # Install dependencies
 npm install
 ```
-````
 
 ### Running Locally
 
