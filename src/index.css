@@ -252,3 +252,43 @@ ul {
     max-width: none;
   }
 }
+
+/* 10. Grupo botão tema + idioma */
+.header-controls {
+  display: flex;
+  gap: var(--gap);
+  align-items: center;
+}
+
+/* 11. LanguageSwitcher */
+.language-switcher {
+  display: flex;
+  gap: 0.5rem;
+}
+.language-button {
+  background: var(--btn-bg);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background var(--transition);
+}
+.language-button:hover,
+.language-button:focus {
+  background: var(--btn-hover);
+}
+.language-button.active {
+  box-shadow: 0 0 0 2px var(--btn-hover);
+}
+
+/* 12. Atualize btn-toggle para alinhar ícone e texto */
+.btn-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

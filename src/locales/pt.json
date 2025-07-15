@@ -1,0 +1,21 @@
+{
+  "title": "Task Manager Avançado",
+  "theme": {
+    "light": "Claro",
+    "dark": "Escuro"
+  },
+  "placeholder": "O que você precisa fazer?",
+  "priority": {
+    "low": "Baixa",
+    "medium": "Média",
+    "high": "Alta"
+  },
+  "add": "Adicionar 💼",
+  "focus": "Focar no input 🎯",
+  "sections": {
+    "active": "Ativas",
+    "done": "Concluídas"
+  },
+  "loading": "Carregando tarefas…",
+  "error": "Erro ao carregar tarefas. Tente recarregar a página."
+}

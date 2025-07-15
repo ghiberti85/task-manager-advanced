@@ -1,0 +1,21 @@
+{
+  "title": "Advanced Task Manager",
+  "theme": {
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "placeholder": "What do you need to do?",
+  "priority": {
+    "low": "Low",
+    "medium": "Medium",
+    "high": "High"
+  },
+  "add": "Add 💼",
+  "focus": "Focus input 🎯",
+  "sections": {
+    "active": "Active",
+    "done": "Done"
+  },
+  "loading": "Loading tasks…",
+  "error": "Error loading tasks. Please reload."
+}

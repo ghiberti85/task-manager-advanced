@@ -4,6 +4,7 @@ import { forwardRef, useRef, useImperativeHandle, useState } from "react";
 import type { FormEvent } from "react"; // import type-only
 import type { Task } from "../types/types";
 import { v4 as uuid } from "uuid";
+import { useTranslation } from "react-i18next";
 
 export interface TaskInputHandle {
   focus: () => void;
@@ -11,6 +12,7 @@ export interface TaskInputHandle {
 
 interface Props {
   onAdd: (task: Task) => void;
+  placeholder?: string;
 }
 
 export default forwardRef<TaskInputHandle, Props>(function TaskInput(
@@ -20,6 +22,7 @@ export default forwardRef<TaskInputHandle, Props>(function TaskInput(
   const [title, setTitle] = useState("");
   const [priority, setPriority] = useState<Task["priority"]>("low");
   const inputRef = useRef<HTMLInputElement>(null);
+  const { t } = useTranslation();
 
   useImperativeHandle(ref, () => ({
     focus: () => inputRef.current?.focus(),
@@ -69,7 +72,7 @@ export default forwardRef<TaskInputHandle, Props>(function TaskInput(
         className="task-input__button"
         aria-label="Adicionar tarefa"
       >
-        Adicionar
+        {t("add")}
       </button>
     </form>
   );

@@ -2,15 +2,18 @@
 
 import type { JSX } from "react";
 import { useRef, useMemo, useCallback, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import TaskInput from "./TaskInput";
 import type { TaskInputHandle } from "./TaskInput";
 import TaskList from "./TaskList";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import { useTasks } from "../hooks/useTasks";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useTheme } from "../hooks/useTheme";
 import type { Task } from "../types/types";
 
 export default function TaskManager(): JSX.Element {
+  const { t } = useTranslation();
   const { state, dispatch, loading, error } = useTasks();
   const [, setStored] = useLocalStorage<Task[]>("tasks", state.tasks);
   const inputRef = useRef<TaskInputHandle>(null);
@@ -42,28 +45,45 @@ export default function TaskManager(): JSX.Element {
     [dispatch]
   );
 
-  if (loading) return <p>Carregando tarefas…</p>;
-  if (error) return <p>Erro ao carregar tarefas. Tente recarregar a página.</p>;
+  if (loading) return <p>{t("loading")}</p>;
+  if (error) return <p>{t("error")}</p>;
 
   return (
     <section className="manager">
       <header className="manager__header">
-        <h1>Task Manager Avançado</h1>
-        <button className="btn-toggle" onClick={toggle}>
-          {theme === "light" ? "☀️ Claro" : "🌙 Escuro"}
-        </button>
+        <h1>{t("title")}</h1>
+
+        {/* trocar tema e idioma lado a lado */}
+        <div style={{ display: "flex", gap: "1rem" }}>
+          <button className="btn-toggle" onClick={toggle}>
+            {theme === "light" ? (
+              <>
+                <span aria-hidden>☀️</span> {t("theme.light")}
+              </>
+            ) : (
+              <>
+                <span aria-hidden>🌙</span> {t("theme.dark")}
+              </>
+            )}
+          </button>
+          <LanguageSwitcher />
+        </div>
       </header>
 
       <div className="manager__controls">
-        <TaskInput ref={inputRef} onAdd={handleAdd} />
+        <TaskInput
+          ref={inputRef}
+          onAdd={handleAdd}
+          placeholder={t("placeholder")}
+        />
         <button className="btn-focus" onClick={() => inputRef.current?.focus()}>
-          Focar no input
+          {t("focus")}
         </button>
       </div>
 
       <div className="task-section">
         <h2>
-          Ativas <span>({activeTasks.length})</span>
+          {t("sections.active")} <span>({activeTasks.length})</span>
         </h2>
         <TaskList
           tasks={activeTasks}
@@ -74,7 +94,7 @@ export default function TaskManager(): JSX.Element {
 
       <div className="task-section">
         <h2>
-          Concluídas <span>({doneTasks.length})</span>
+          {t("sections.done")} <span>({doneTasks.length})</span>
         </h2>
         <TaskList
           tasks={doneTasks}
