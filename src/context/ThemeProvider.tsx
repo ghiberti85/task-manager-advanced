@@ -1,5 +1,5 @@
 // src/context/ThemeProvider.tsx
-import React, { useState, useCallback, useEffect, type ReactNode } from "react";
+import { useState, useCallback, useEffect, type ReactNode } from "react";
 import { ThemeContext, type Theme } from "./theme";
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
