@@ -1,11 +1,14 @@
-import React from "react";
+// src/App.tsx
+import type { JSX } from "react";
+import { ThemeProvider } from "./context/ThemeProvider";
+import TaskManager from "./components/TaskManager";
 
-function App() {
+export default function App(): JSX.Element {
   return (
-    <div className="App">
-      <h1>Advanced Task Manager</h1>
-    </div>
+    <ThemeProvider>
+      <div className="app-container">
+        <TaskManager />
+      </div>
+    </ThemeProvider>
   );
 }
-
-export default App;

@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect } from "react";
+import { useRef, useLayoutEffect } from "react";
 import type { Task } from "../types/types";
 import TaskItem from "./TaskItem";
 
