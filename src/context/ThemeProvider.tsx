@@ -2,6 +2,13 @@
 import { useState, useCallback, useEffect, type ReactNode } from "react";
 import { ThemeContext, type Theme } from "./theme";
 
+/**
+ * ThemeProvider
+ *   - Componente que envolve a app e provê estado de tema via Context
+ *   - useState mantém o tema atual
+ *   - useCallback memoiza a função toggle para não regenerar em cada render
+ *   - useEffect injeta a classe no <body> para CSS temático
+ */
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>("light");
 

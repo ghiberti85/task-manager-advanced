@@ -12,6 +12,16 @@ import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useTheme } from "../hooks/useTheme";
 import type { Task } from "../types/types";
 
+/**
+ * TaskManager
+ *   - Orquestra todos os hooks:
+ *      • useTasks: estado de tarefas + loading/erro
+ *      • useLocalStorage: persiste tarefas
+ *      • useTheme: tema claro/escuro
+ *      • useTranslation: textos i18n
+ *   - Organiza filtros com useMemo
+ *   - Memoiza handlers com useCallback
+ */
 export default function TaskManager(): JSX.Element {
   const { t } = useTranslation();
   const { state, dispatch, loading, error } = useTasks();
@@ -19,10 +29,12 @@ export default function TaskManager(): JSX.Element {
   const inputRef = useRef<TaskInputHandle>(null);
   const { theme, toggle } = useTheme();
 
+  // sincroniza localStorage a cada mudança de tarefas
   useEffect(() => {
     setStored(state.tasks);
   }, [state.tasks, setStored]);
 
+  // separa ativas / concluídas sem recalcular toda hora
   const activeTasks = useMemo(
     () => state.tasks.filter((t) => !t.done),
     [state.tasks]

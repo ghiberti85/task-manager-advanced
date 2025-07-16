@@ -15,6 +15,11 @@ interface Props {
   placeholder?: string;
 }
 
+/**
+ * TaskInput
+ * useState para campo de texto e select de prioridade
+ * useRef + useImperativeHandle para expor .focus() ao pai
+ */
 export default forwardRef<TaskInputHandle, Props>(function TaskInput(
   { onAdd },
   ref
@@ -24,6 +29,7 @@ export default forwardRef<TaskInputHandle, Props>(function TaskInput(
   const inputRef = useRef<HTMLInputElement>(null);
   const { t } = useTranslation();
 
+  // expõe apenas o método focus
   useImperativeHandle(ref, () => ({
     focus: () => inputRef.current?.focus(),
   }));

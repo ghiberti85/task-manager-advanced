@@ -7,6 +7,11 @@ interface Props {
   onDelete: (id: string) => void;
 }
 
+/**
+ * TaskItem
+ *   - memo para evitar re-renders quando props não mudam
+ *   - useCallback para memoizar handlers passados a filhos
+ */
 const TaskItem = memo(function TaskItem({ task, onToggle, onDelete }: Props) {
   const handleToggle = useCallback(
     () => onToggle(task.id),

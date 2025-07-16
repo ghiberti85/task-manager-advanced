@@ -2,6 +2,10 @@
 
 import { useTranslation } from "react-i18next";
 
+/**
+ * LanguageSwitcher
+ * useTranslation apenas para obter i18n.changeLanguage
+ */
 export function LanguageSwitcher() {
   const { i18n } = useTranslation();
 

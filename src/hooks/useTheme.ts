@@ -5,7 +5,8 @@ import { ThemeContext } from "../context/theme";
 
 /**
  * Hook para ler o tema.
- * Se não for usado dentro de <ThemeProvider>, lança erro.
+ * Hook simples para obter { theme, toggle } do Contexto
+ * Garante que o ContextProvider esteja presente
  */
 export function useTheme() {
   const ctx = useContext(ThemeContext);
